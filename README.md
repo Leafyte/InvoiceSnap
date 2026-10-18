@@ -53,7 +53,8 @@ Open http://127.0.0.1:5000. The badges at the top show whether Tesseract and Gem
 
 ## Project layout
 ```
-app.py              Flask backend (OCR, Gemma call, fallback, validation)
+app.py              
+Flask backend (OCR, Gemma call, fallback, validation)
 templates/index.html
 static/style.css, static/app.js
 requirements.txt

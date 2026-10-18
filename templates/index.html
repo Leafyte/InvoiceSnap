@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>InvoiceSnap AI</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <header>
+    <h1>InvoiceSnap <span>AI</span></h1>
+    <p>Scan receipts into expenses. Everything runs on your machine.</p>
+    <div class="status" id="status" aria-live="polite"></div>
+  </header>
+  <main>
+    <section id="drop" tabindex="0" role="button" aria-label="Upload receipt images">
+      <input type="file" id="file" accept="image/*" multiple hidden>
+      <strong>Drop receipt images here</strong>
+      <span>or click to choose files (PNG, JPG, WEBP, up to 10 MB each)</span>
+    </section>
+    <div id="msg" role="alert"></div>
+    <section class="ledger">
+      <div class="bar">
+        <h2>Expenses <small id="count"></small></h2>
+        <div class="actions">
+          <button id="export" class="primary">Export CSV</button>
+          <button id="clear" class="ghost">Clear all</button>
+        </div>
+      </div>
+      <div class="scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Merchant</th>
+              <th>Date</th>
+              <th>Total</th>
+              <th>Category</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Total spent</td>
+              <td id="sum" colspan="3"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p id="empty">No expenses yet. Upload a receipt to get started.</p>
+    </section>
+  </main>
+  <script>const CATEGORIES = { categoriestojson };</script>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
+</html>
